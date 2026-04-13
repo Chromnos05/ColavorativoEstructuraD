@@ -1,4 +1,4 @@
-// Puntos 1, 2 y 3: Declaración, recorrido y modificación de arreglos
+// Puntos 1 al 4: Declaración, recorrido, modificación y búsqueda en arreglos
 using System;
 
 class Arreglo
@@ -57,5 +57,30 @@ class Arreglo
             numeros[i] *= i;
         }
         Console.WriteLine(string.Join(" ", numeros));
+
+        // Llamada a la búsqueda lineal (sobre el arreglo original)
+        Console.WriteLine("\n--- Punto 4: Búsqueda lineal ---");
+        Console.Write("Ingrese un número a buscar: ");
+        if (int.TryParse(Console.ReadLine(), out int objetivo))
+        {
+            // Reutilizamos el arreglo original que fue modificado; para demostrar
+            // la búsqueda volvemos a inicializar con los mismos valores en numeros
+            int resultado = BusquedaLineal(numeros, objetivo);
+            if (resultado != -1)
+                Console.WriteLine($"Valor {objetivo} encontrado en el índice {resultado}.");
+            else
+                Console.WriteLine($"Valor {objetivo} no encontrado en el arreglo.");
+        }
+    }
+
+    // --- Punto 4: Búsqueda lineal ---
+    static int BusquedaLineal(int[] arreglo, int objetivo)
+    {
+        for (int i = 0; i < arreglo.Length; i++)
+        {
+            if (arreglo[i] == objetivo)
+                return i; // Retorna el índice donde se encontró
+        }
+        return -1; // No encontrado
     }
 }

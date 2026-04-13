@@ -1,4 +1,4 @@
-# Puntos 1, 2 y 3: Declaración, recorrido y modificación de arreglos
+# Puntos 1 al 4: Declaración, recorrido, modificación y búsqueda en arreglos
 import random
 
 # Declarar una lista de 10 enteros con valores aleatorios del 1 al 100
@@ -35,3 +35,19 @@ print("\nMultiplicación por índice:")
 for i in range(len(numeros_modif)):
     numeros_modif[i] *= i
 print(" ".join(map(str, numeros_modif)))
+
+# --- Punto 4: Búsqueda lineal ---
+def busqueda_lineal(arreglo, objetivo):
+    for i in range(len(arreglo)):
+        if arreglo[i] == objetivo:
+            return i  # Índice encontrado
+    return -1  # No encontrado
+
+import random as _random
+valor_a_buscar = numeros[_random.randint(0, len(numeros) - 1)]
+posicion = busqueda_lineal(numeros, valor_a_buscar)
+print(f"\nBuscar {valor_a_buscar} en el arreglo original:")
+if posicion != -1:
+    print(f"  Valor {valor_a_buscar} encontrado en el índice {posicion}.")
+else:
+    print(f"  Valor {valor_a_buscar} no encontrado.")

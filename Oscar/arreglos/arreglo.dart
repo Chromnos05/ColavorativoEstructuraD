@@ -1,4 +1,4 @@
-// Puntos 1, 2 y 3: Declaración, recorrido y modificación de arreglos
+// Puntos 1 al 4: Declaración, recorrido, modificación y búsqueda en arreglos
 import 'dart:math';
 import 'dart:io';
 
@@ -42,4 +42,21 @@ void main() {
     numerosModif[i] *= i;
   }
   print(numerosModif.join(" "));
+
+  // --- Punto 4: Búsqueda lineal ---
+  int valorABuscar = numeros[random.nextInt(numeros.length)];
+  int posicion = busquedaLineal(numeros, valorABuscar);
+  print("\nBuscar $valorABuscar en el arreglo original:");
+  if (posicion != -1) {
+    print("  Valor $valorABuscar encontrado en el índice $posicion.");
+  } else {
+    print("  Valor $valorABuscar no encontrado.");
+  }
+}
+
+int busquedaLineal(List<int> arreglo, int objetivo) {
+  for (int i = 0; i < arreglo.length; i++) {
+    if (arreglo[i] == objetivo) return i;
+  }
+  return -1;
 }

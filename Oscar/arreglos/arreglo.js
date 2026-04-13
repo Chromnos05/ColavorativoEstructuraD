@@ -1,4 +1,4 @@
-// Puntos 1, 2 y 3: Declaración, recorrido y modificación de arreglos
+// Puntos 1 al 4: Declaración, recorrido, modificación y búsqueda en arreglos
 
 // Declarar un arreglo de 10 enteros con valores aleatorios del 1 al 100
 const numeros = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100) + 1);
@@ -37,3 +37,21 @@ for (let i = 0; i < numerosModif.length; i++) {
     numerosModif[i] *= i;
 }
 console.log(numerosModif.join(" "));
+
+// --- Punto 4: Búsqueda lineal ---
+function busquedaLineal(arreglo, objetivo) {
+    for (let i = 0; i < arreglo.length; i++) {
+        if (arreglo[i] === objetivo) return i;
+    }
+    return -1;
+}
+
+// Buscamos un valor del arreglo original
+const valorABuscar = numeros[Math.floor(Math.random() * numeros.length)];
+const posicion = busquedaLineal(numeros, valorABuscar);
+console.log(`\nBuscar ${valorABuscar} en el arreglo original:`);
+if (posicion !== -1) {
+    console.log(`  Valor ${valorABuscar} encontrado en el índice ${posicion}.`);
+} else {
+    console.log(`  Valor ${valorABuscar} no encontrado.`);
+}
