@@ -28,5 +28,30 @@ public class Matriz {
             }
             System.out.println(" (Columna " + j + ")");
         }
+
+        // Actividad 3: Operaciones
+        // Sumar todos los elementos
+        int suma = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                suma += matriz[i][j];
+            }
+        }
+        System.out.println("\nSuma de todos los elementos: " + suma);
+
+        // Intercambiar la primera fila con la última
+        System.out.println("\nIntercambiando la primera fila con la última...");
+        int[] temp = matriz[0];
+        matriz[0] = matriz[matriz.length - 1];
+        matriz[matriz.length - 1] = temp;
+
+        // Mostrar resultado del intercambio
+        System.out.println("Matriz después del intercambio:");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 }
